@@ -1,4 +1,4 @@
-FROM openjdk/openjdk-8-rhel8:latest
+FROM openjdk/openjdk-8-rhel8
 
 ENV GLASSFISH_HOME /usr/local/glassfish4
 ENV PATH $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
