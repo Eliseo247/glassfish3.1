@@ -3,7 +3,7 @@ FROM openjdk-8-rhel8:latest
 ENV GLASSFISH_HOME /usr/local/glassfish4
 ENV PATH $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
 
-RUN yum install wget
+RUN dnf install wget
 
 RUN wget http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip &&\
          unzip /tmp/glassfish-4.1.zip -d /usr/local && \
