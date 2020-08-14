@@ -18,7 +18,7 @@ RUN         curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish
 
 EXPOSE      8080 4848 8181
 user root
-RUN chmod -R 777 /opt/glassfishv4/glassfish && \
+RUN chmod -R 777 /opt/glassfish4 && \
             chmod -R 777  /usr/local/glassfish4
 
 WORKDIR      /usr/local/glassfish4
