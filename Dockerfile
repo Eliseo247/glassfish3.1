@@ -1,20 +1,41 @@
-FROM        java:8-jdk
+FFROM openjdk:7u151-jdk-alpine
 
-ENV         JAVA_HOME         /usr/lib/jvm/java-8-openjdk-amd64
-ENV         GLASSFISH_HOME    /usr/local/glassfish4
-ENV         PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
+# Set environment variables
+ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
+    GLASSFISH_URL=http://download.oracle.com/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip \
+    GLASSFISH_HOME=/usr/local/glassfish3 \
+    MD5=ae8e17e9dcc80117cb4b39284302763f \
+    PATH=$PATH:/usr/local/glassfish3/bin
 
-RUN         apt-get update && \
-            apt-get install -y curl unzip zip inotify-tools && \
-            rm -rf /var/lib/apt/lists/*
+# Download and install GlassFish
+RUN wget -q -O $GLASSFISH_PKG $GLASSFISH_URL && \
+    echo "$MD5 *$GLASSFISH_PKG" | md5sum -c - && \
+    unzip -o $GLASSFISH_PKG -d /usr/local && \
+    rm -f $GLASSFISH_PKG && \
+    \
+    # Remove Windows .bat and .exe files to save space
+    cd $GLASSFISH_HOME && \
+    find . -name '*.bat' -delete && \
+    find . -name '*.exe' -delete
 
-RUN         curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip && \
-            unzip /tmp/glassfish-4.1.zip -d /usr/local && \
-            rm -f /tmp/glassfish-4.1.zip
+# Ports being exposed
+EXPOSE 4848 8080 8181
 
-EXPOSE      8080 4848 8181
+WORKDIR /usr/local/glassfish3
 
-WORKDIR     /usr/local/glassfish4
+# Copy in and set the entrypoint
+COPY docker-entrypoint.sh $GLASSFISH_HOME/
+ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 
-# verbose causes the process to remain in the foreground so that docker can track it
-CMD         asadmin start-domain --verbose
+# Start the GlassFish domain
+CMD ["asadmin", "start-domain1", "--verbose"]
+
+LABEL maintainer="King Chung Huang <kchuang@ucalgary.ca>" \
+      org.label-schema.schema-version="1.0" \
+      org.label-schema.name="GlassFish" \
+      org.label-schema.version="3.1.2.2" \
+      org.label-schema.url="https://glassfish.java.net" \
+      org.label-schema.vcs-url="https://github.com/ucalgary/docker-glassfish"
+         
+         
+         
