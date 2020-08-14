@@ -5,10 +5,7 @@ ENV GLASSFISH_HOME /usr/local/glassfish4
 ENV PATH $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
 
 
-RUN wget http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip 
 
-RUN   unzip /tmp/glassfish-4.1.zip -d /usr/local && \
-         rm -f /tmp/glassfish-4.1.zip
 
 EXPOSE 4848 8080 8181 9009
 
