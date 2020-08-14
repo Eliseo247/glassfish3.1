@@ -1,11 +1,10 @@
-FROM        java:8-jdk
+FROM        /openjdk-8-rhel8:latest
 
-ENV         JAVA_HOME         /usr/lib/jvm/java-8-openjdk-amd64
+ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
 ENV         GLASSFISH_HOME    /usr/local/glassfish4
 ENV         PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
 
-RUN         apt-get update && \
-            apt-get install -y curl unzip zip inotify-tools && \
+RUN          yum install -y curl unzip zip inotify-tools && \
             rm -rf /var/lib/apt/lists/*
 
 RUN         curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip && \
