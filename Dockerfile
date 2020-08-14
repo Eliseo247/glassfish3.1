@@ -12,13 +12,15 @@ RUN          rm -rf /var/lib/apt/lists/*
 USER root
 RUN         curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip && \
             unzip /tmp/glassfish-4.1.zip -d /usr/local && \
+             unzip /tmp/glassfish-4.1.zip -d /opt && \
             rm -f /tmp/glassfish-4.1.zip
 
 
 EXPOSE      8080 4848 8181
 
 WORKDIR     /usr/local/glassfish4 && \
-            chmod 777 -R /usr/local/glassfish4
+            chmod -R 777 /opt/glassfishv4/glassfish/
+            chmod -R 777  /usr/local/glassfish4
 
 # verbose causes the process to remain in the foreground so that docker can track it
 CMD         asadmin start-domain --verbose
