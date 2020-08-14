@@ -1,4 +1,4 @@
-FROM        /openjdk-8-rhel8:latest
+FROM        openjdk-8-rhel8:latest
 
 ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
 ENV         GLASSFISH_HOME    /usr/local/glassfish4
