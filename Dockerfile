@@ -1,4 +1,4 @@
-FROM php-73-rhel7:latest 
+FROM popenjdk/openjdk-8-rhel8:latest
 
 ENV GLASSFISH_HOME /usr/local/glassfish4
 ENV PATH $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
