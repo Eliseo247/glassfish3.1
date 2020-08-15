@@ -29,11 +29,11 @@ user root
 RUN    chmod -R 777  /usr/local/glassfish4/docker-entrypoint.sh
 
 RUN groupadd glassfish_grp && \
-useradd --system glassfish && \
-usermod -G glassfish_grp glassfish && \ 
+useradd --system 1000030000 && \
+usermod -G glassfish_grp 1000030000 && \ 
 chown -R glassfish:glassfish_grp ${GLASSFISH_HOME} && \ 
 chmod -R 777 ${GLASSFISH_HOME}
-USER glassfish
+USER 1000030000
 
 
 ENTRYPOINT ["/usr/local/glassfish4/docker-entrypoint.sh"]
