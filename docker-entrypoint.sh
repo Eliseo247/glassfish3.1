@@ -40,5 +40,6 @@ if [ "$1" = 'asadmin' ]; then
 
     exec "$@"
 fi
-asadmin --host localhost --port 4848 enable-secure-admin
+
 exec "$@"
+asadmin --host localhost --port 4848 enable-secure-admin
