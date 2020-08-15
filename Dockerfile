@@ -27,6 +27,7 @@ WORKDIR      /usr/local/glassfish4
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
 user root  
 RUN    chmod -R 777  /usr/local/glassfish4/docker-entrypoint.sh
+USER glassfish
 ENTRYPOINT ["/usr/local/glassfish4/docker-entrypoint.sh"]
 
 # verbose causes the process to remain in the foreground so that docker can track it
