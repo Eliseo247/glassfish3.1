@@ -28,7 +28,7 @@ COPY docker-entrypoint.sh $GLASSFISH_HOME/
 user root  
 RUN    chmod -R 777  /usr/local/glassfish4/docker-entrypoint.sh
 
-RUN groupaad glassfish_grp && \
+RUN groupadd glassfish_grp && \
 useradd --system glassfish && \
 usermod -G glassfish_grp glassfish && \ 
 chown -R glassfish:glassfish_grp ${GLASSFISH_HOME} && \ 
