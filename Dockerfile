@@ -4,9 +4,8 @@ FROM registry.redhat.io/rhel7/rhel:latest
 USER root
 
         # Install packages defined in the 'jboss.container.openjdk.jdk' module
-        RUN microdnf --setopt=tsflags=nodocs install -y java-1.7.0-openjdk-devel \
-            && microdnf clean all \
-            && rpm -q java-1.7.0-openjdk-devel
+        RUN yum install -y java-1.7.0-openjdk-devel \
+              rpm -q java-1.7.0-openjdk-devel
             
             
 USER root
