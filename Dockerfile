@@ -1,4 +1,5 @@
-FROM    registry.redhat.io/rhel7:latest
+FROM rhel7/rhel:latest
+#    registry.redhat.io/
 USER root
 RUN yum search java
 RUN yum -y install java-1.7
