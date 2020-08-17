@@ -1,12 +1,5 @@
-FROM registry.redhat.io/rhel7/rhel:latest
+FROM registry.redhat.io/rhel7-init:latest
 
-#    registry.redhat.io/
-USER root
-
-        # Install packages defined in the 'jboss.container.openjdk.jdk' module
-        RUN yum install -y java-1.7.0-openjdk-devel \
-              rpm -q java-1.7.0-openjdk-devel
-            
             
 USER root
 RUN chmod 777 /usr/lib/jvm/
