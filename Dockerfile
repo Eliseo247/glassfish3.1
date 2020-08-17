@@ -1,6 +1,9 @@
-FROM registry.redhat.io/rhel7-init:latest
+#FROM registry.redhat.io/rhel7-init:latest
 
             
+FROM php-73-rhel7:latest  
+MAINTAINER Eliseo Ramirez
+
 USER root
 RUN yum -y install rh-php73-php-xmlrpc.x86_64
 
