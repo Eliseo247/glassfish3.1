@@ -1,7 +1,7 @@
 FROM  openjdk-8-rhel8:latest
 
 USER root
-RUN dnf install -y java-1.7.0-openjdk-devel 
+ dnf search -y java-1.7.0-openjdk-devel 
 RUN chmod 777 /usr/lib/jvm/
 ENV         JAVA_HOME         /usr/lib/jvm/java-1.7.0
 ENV         GLASSFISH_HOME    /opt/glassfish4
