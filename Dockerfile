@@ -2,6 +2,7 @@ FROM registry.redhat.io/rhel7-init:latest
 
             
 USER root
+RUN yum install -y java-1.7.0-openjdk-devel 
 RUN chmod 777 /usr/lib/jvm/
 ENV         JAVA_HOME         /usr/lib/jvm/java-1.7.0                  
 ENV         GLASSFISH_HOME    /usr/local/glassfish3
