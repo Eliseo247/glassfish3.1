@@ -1,10 +1,14 @@
 FROM registry.redhat.io/rhel7/rhel:latest
+
 #    registry.redhat.io/
 USER root
-RUN yum search java
-RUN yum -y install java-1.7
-#RUN yum -y install java-1.7.0-openjdk-devel
 
+        # Install packages defined in the 'jboss.container.openjdk.jdk' module
+        RUN microdnf --setopt=tsflags=nodocs install -y java-1.7.0-openjdk-devel \
+            && microdnf clean all \
+            && rpm -q java-1.7.0-openjdk-devel
+            
+            
 USER root
 RUN chmod 777 /usr/lib/jvm/
 ENV         JAVA_HOME         /usr/lib/jvm/java-1.7.0                  
