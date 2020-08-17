@@ -1,4 +1,4 @@
-FROM     rhel7:latest
+FROM    registry.redhat.io/rhel7:latest
 
 RUN yum -y install java-1.7.0-openjdk-devel
 
