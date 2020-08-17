@@ -1,4 +1,4 @@
- FROM ubi8-minimal:8-released
+ FROM  registry.redhat.io/ubi8-minimal:8-released
 
     USER root
     RUN dnf install -y java-1.7.0-openjdk-devel
