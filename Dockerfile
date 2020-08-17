@@ -1,4 +1,7 @@
-FROM  openjdk-8-rhel8:latest
+ FROM ubi8-minimal:8-released
+
+    USER root
+    RUN dnf install -y java-1.7.0-openjdk-devel
 
 USER root
 RUN dnf search -y openjdk
