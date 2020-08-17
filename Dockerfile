@@ -1,32 +1,34 @@
-FROM        openjdk-8-rhel8:latest
+FROM     rhel7:latest
+
+RUN yum -y install java-1.7.0-openjdk-devel
 
 USER root
 RUN chmod 777 /usr/lib/jvm/
-ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
-ENV         GLASSFISH_HOME    /usr/local/glassfish4
+ENV         JAVA_HOME         /usr/lib/jvm/java-1.7.0                  
+ENV         GLASSFISH_HOME    /usr/local/glassfish3
 ENV         PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
 
 USER root
 RUN          rm -rf /var/lib/apt/lists/*
 
 USER root
-RUN         curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip && \
-            unzip /tmp/glassfish-4.1.zip -d /usr/local && \
-             unzip /tmp/glassfish-4.1.zip -d /opt && \
-            rm -f /tmp/glassfish-4.1.zip
+RUN         curl -L -o /tmp/glassfish-3.1.2.2.zip  https://download.oracle.com/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip && \
+            unzip /tmp/glassfish-3.1.2.2.zip -d /usr/local && \
+             unzip /tmp/glassfish-3.1.2.2.zip -d /opt && \
+            rm -f /tmp/glassfish-3.1.2.2.zip
 
 
 EXPOSE      8080 4848 8181
 user root
-RUN chmod -R 777 /opt/glassfish4 && \
-            chmod -R 777  /usr/local/glassfish4
+RUN chmod -R 777 /opt/glassfish3 && \
+            chmod -R 777  /usr/local/glassfish3
 
-WORKDIR      /usr/local/glassfish4
+WORKDIR      /usr/local/glassfish3
 
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
 user root  
-RUN    chmod -R 777  /usr/local/glassfish4/docker-entrypoint.sh
+RUN    chmod -R 777  /usr/local/glassfish3/docker-entrypoint.sh
 
 RUN groupadd glassfish_grp && \
 useradd --system glassfish && \
