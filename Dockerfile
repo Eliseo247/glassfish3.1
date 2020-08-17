@@ -1,14 +1,14 @@
-#FROM registry.redhat.io/rhel7-init:latest
-
-            
-FROM php-73-rhel7:latest  
-MAINTAINER Eliseo Ramirez
+FROM  openjdk-8-rhel8:latest
 
 USER root
-RUN yum -y install rh-php73-php-xmlrpc.x86_64
-
-
 RUN yum install -y java-1.7.0-openjdk-devel 
+RUN chmod 777 /usr/lib/jvm/
+ENV         JAVA_HOME         /usr/lib/jvm/java-1.7.0
+ENV         GLASSFISH_HOME    /opt/glassfish4
+ENV         PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
+
+
+
 RUN chmod 777 /usr/lib/jvm/
 ENV         JAVA_HOME         /usr/lib/jvm/java-1.7.0                  
 ENV         GLASSFISH_HOME    /usr/local/glassfish3
