@@ -1,4 +1,4 @@
-FROM rhel7/rhel:latest
+FROM registry.redhat.io/rhel7/rhel:latest
 #    registry.redhat.io/
 USER root
 RUN yum search java
