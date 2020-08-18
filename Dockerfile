@@ -2,7 +2,7 @@ FROM       registry.redhat.io/openshift3/ose-metrics-schema-installer:latest
     USER root
    RUN dnf search openjdk   
     
-    RUN dnf install -y java-1.7.0-openjdk-devel
+    RUN yum install -y java-1.7.0-openjdk-devel
 
 USER root
 RUN dnf search -y openjdk
