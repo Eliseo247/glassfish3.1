@@ -10,7 +10,7 @@ FROM openjdk-8-rhel8:latest
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
 RUN wget -q -O  /tmp/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz  && \
-      tar -zxvf /tmp/oopenjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz /tmp && \
+      tar -zxvf /tmp/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz /tmp && \
       cd /tmp && \ 
     ./configure && \
     make && \
