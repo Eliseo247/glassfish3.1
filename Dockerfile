@@ -34,8 +34,8 @@ EXPOSE 4848 8080 8181
 WORKDIR /usr/local/glassfish3
 
 # Copy in and set the entrypoint
-COPY docker-entrypoint.sh /usr/local
-COPY docker-entrypoint.sh $GLASSFISH_HOME/
+COPY docker-entrypoint.sh /usr/local/
+COPY /usr/local/docker-entrypoint.sh $GLASSFISH_HOME/
 RUN chmod 777 /usr/local/glassfish3/docker-entrypoint.sh && \
 RUN chmod 777 /usr/local/docker-entrypoint.sh
 RUN chgrp -R 0 /usr/local/glassfish3 && \
