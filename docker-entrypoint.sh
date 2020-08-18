@@ -1,5 +1,10 @@
 #!/bin/sh
-
+  
+ if [ ! -f /usr/local/glassfish3/bin/asadmin]; then
+  cp -Rf /home/digitalizados  /usr/local/glassfish3 
+  fi
+ 
+ 
 if ! whoami &> /dev/null; then
 cd /usr/local/glassfish3
   if [ -w /etc/passwd ]; then
