@@ -10,18 +10,18 @@ FROM openjdk-8-rhel8:latest
     #RUN rpm -ivh epel-release-7-8.noarch.rpm
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
-RUN dnf install -y java-1.7.0-openjdk.x86_64
+#RUN dnf install -y java-1.7.0-openjdk.x86_64
 
 
-RUN wget https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz  && \
-su -c "dnf install -y java-1.7.0-openjdk"
+#RUN wget https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz  && \
+#su -c "dnf install -y java-1.7.0-openjdk"
  # tar -zxvf openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz && \
   #     ./configure && \
    # make && \
     #make install 
 
 
-    RUN dnf search search java | grep openjdk
+    RUN dnf search jdk
    #RUN dnf install  -y java-1.7.0-openjdk
 
 USER root
