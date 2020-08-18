@@ -5,7 +5,8 @@ if ! whoami &> /dev/null; then
     echo "${USER_NAME:-default}:x:$(id -u):0:${USER_NAME:-default} user:${HOME}:/sbin/nologin" >> /etc/passwd
   fi
 fi
-
+cp /tmp/docker-entrypoint.sh /usr/local/glassfish3/docker-entrypoint.sh
+cd /usr/local/glassfish3
 if [ "$1" = 'asadmin' ]; then
     if [ "$AS_ADMIN_PASSWORD" ]; then
         echo "AS_ADMIN_PASSWORD=" > /tmp/glassfishpwd
