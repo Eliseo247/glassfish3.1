@@ -33,7 +33,7 @@ EXPOSE 4848 8080 8181
 
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh /usr/local/glassfish3
-COPY /usr/local/glassfish3 /home/digitalizados
+
 RUN chgrp -R 0 /usr/local/glassfish3/docker-entrypoint.sh && \
     chmod -R g=u /usr/local/glassfish3/docker-entrypoint.sh
 #COPY /docker-entrypoint.sh $GLASSFISH_HOME/
@@ -47,6 +47,7 @@ RUN chgrp -R 0 /usr/local/glassfish3 && \
 RUN mkdir  /home/digitalizados
 RUN chmod 777 /home/digitalizados
 VOLUME ["/home/digitalizados"]
+RUN cp -rf  /usr/local/glassfish3/* /home/digitalizados
 
 VOLUME  ["/usr/local/glassfish3"]
 WORKDIR /usr/local/glassfish3
