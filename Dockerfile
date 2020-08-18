@@ -1,5 +1,4 @@
-FROM        openjdk-8-rhel7:latest
-
+FROM       registry.redhat.io/openshift3/ose-metrics-schema-installer:latest
     USER root
    RUN dnf search openjdk   
     
