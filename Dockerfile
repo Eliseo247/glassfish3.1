@@ -21,7 +21,8 @@ FROM openjdk-8-rhel8:latest
     #make install 
 
 
-    RUN dnf search jdk
+   USER root
+   RUN dnf search jdk
    #RUN dnf install  -y java-1.7.0-openjdk
 
 USER root
