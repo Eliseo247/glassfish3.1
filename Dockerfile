@@ -1,7 +1,8 @@
 FROM        openjdk-8-rhel8:latest
     USER root
-    RUN  curl -L -o /tmp/epel-release-7-8.noarch.rpm t https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
-    RUN rpm -ivh /tmp/epel-release-7-8.noarch.rpm
+    RUN dnf dnf install wget
+    RUN  wget https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
+    RUN rpm -ivh epel-release-7-8.noarch.rpm
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
   #  RUN  yum repolist all
