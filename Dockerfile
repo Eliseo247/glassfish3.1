@@ -10,7 +10,7 @@ FROM openjdk-8-rhel8:latest
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
 RUN wget https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz
-RUN su -c "dnf install java-1.7.0-openjdk"
+RUN su -c "dnf install java-1.7.0-openjdk-deve1"
     #RUN dnf search all openjdk
    #RUN dnf install  -y java-1.7.0-openjdk
 
