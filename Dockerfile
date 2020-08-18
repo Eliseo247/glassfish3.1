@@ -1,7 +1,7 @@
 FROM openjdk-8-rhel8:latest
     USER root
     RUN dnf install -y wget
-    RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+    #RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    # RUN  ARCH=$( /bin/arch )
     #RUN subscription-manager repos --enable "codeready-builder-for-rhel-8-${ARCH}-rp
     
@@ -10,7 +10,7 @@ FROM openjdk-8-rhel8:latest
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
 RUN wget https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz  && \
--c "dnf install -y java-1.7.0-openjdk"
+su -c "dnf install -y java-1.7.0-openjdk"
  # tar -zxvf openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz && \
   #     ./configure && \
    # make && \
