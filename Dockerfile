@@ -9,7 +9,7 @@ FROM openjdk-8-rhel8:latest
    # RUN  wget https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
     #RUN rpm -ivh epel-release-7-8.noarch.rpm
   
-RUN yum-config-manager --enable rhel-6-server-optional-rpms
+#RUN yum-config-manager --enable rhel-6-server-optional-rpms
 RUN dnf install -y java-1.7.0-openjdk.x86_64
 
 
