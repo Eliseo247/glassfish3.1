@@ -1,4 +1,4 @@
-FROM       registry.redhat.io/openshift3/ose-metrics-schema-installer:latest
+FROM        openjdk-8-rhel8:latest
     USER root
     RUN wget https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
     RUN rpm -ivh epel-release-7-8.noarch.rpm
