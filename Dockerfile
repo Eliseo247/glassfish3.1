@@ -43,8 +43,11 @@ RUN chgrp -R 0 /usr/local/glassfish3 && \
     RUN chmod g=u /etc/passwd
   #/usr/local/glassfish3
 
-VOLUME  ["/usr/local/glassfish3"]
+RUN mkdir  /home/digitalizados
+RUN chmod 777 /home/digitalizados
 VOLUME ["/home/digitalizados"]
+
+VOLUME  ["/usr/local/glassfish3"]
 WORKDIR /usr/local/glassfish3
 ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 
