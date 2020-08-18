@@ -1,7 +1,7 @@
 FROM        openjdk-8-rhel8:latest
     USER root
     RUN dnf install -y wget
-    RUN dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+    RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
     RUN  ARCH=$( /bin/arch )
     RUN subscription-manager repos --enable "codeready-builder-for-rhel-8-${ARCH}-rp
     
