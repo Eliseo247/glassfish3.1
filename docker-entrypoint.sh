@@ -1,12 +1,12 @@
 #!/bin/sh
-cd /usr/local/glassfish3
+
 if ! whoami &> /dev/null; then
 cd /usr/local/glassfish3
   if [ -w /etc/passwd ]; then
     echo "${USER_NAME:-default}:x:$(id -u):0:${USER_NAME:-default} user:${HOME}:/sbin/nologin" >> /etc/passwd
   fi
 fi
-cd /usr/local/glassfish3
+
 if [ "$1" = 'asadmin' ]; then
     if [ "$AS_ADMIN_PASSWORD" ]; then
         echo "AS_ADMIN_PASSWORD=" > /tmp/glassfishpwd
@@ -31,9 +31,9 @@ su - exemple
 su - exemple
         chmod 600 /root/.asadminpass && id
 su - exemple
-cd /usr/local/glassfish3
+
         if [ "$AS_ADMIN_ENABLE_SECURE" ]; then
-        cd /usr/local/glassfish3
+        
             echo "AS_ADMIN_PASSWORD=${AS_ADMIN_PASSWORD}" > /tmp/glassfishpwd
             asadmin start-domain            
             
