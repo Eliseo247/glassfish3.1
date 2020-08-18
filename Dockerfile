@@ -38,7 +38,7 @@ COPY docker-entrypoint.sh /tmp/
 RUN chgrp -R 0 /tmp/docker-entrypoint.sh && \
     chmod -R g=u /tmp/docker-entrypoint.sh
 #COPY /docker-entrypoint.sh $GLASSFISH_HOME/
-RUN chmod 777 /docker-entrypoint.sh
+RUN chmod 777 /tmp/docker-entrypoint.sh
 RUN chgrp -R 0 /usr/local/glassfish3 && \
     chmod -R g=u /usr/local/glassfish3
     
