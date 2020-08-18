@@ -1,4 +1,4 @@
-FROM        openjdk-8-rhel8:latest
+FROM openjdk-8-rhel8:latest
     USER root
     RUN dnf install -y wget
     RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
@@ -10,7 +10,9 @@ FROM        openjdk-8-rhel8:latest
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
   #  RUN  yum repolist all
-   #RUN yum search all java
+   RUN yum search all java
+    RUN yum search all openjdk
+   
     
     RUN dnf install  -y java-1.7.0-openjdk
 
