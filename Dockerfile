@@ -44,7 +44,7 @@ RUN chgrp -R 0 /usr/local/glassfish3 && \
     
     RUN chmod g=u /etc/passwd
   #/usr/local/glassfish3
-ENTRYPOINT ["/tmp/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 USER 1001
 # Start the GlassFish domain
 CMD ["asadmin", "start-domain", "--verbose"]
