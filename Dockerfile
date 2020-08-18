@@ -6,7 +6,8 @@
 #100GB /home/Digitalizados
 #10GB /usr/local/glassfish3
 FROM openjdk:7u151-jdk-alpine
-
+VOLUME /home/digitalizados
+VOLUME /usr/local/glassfish3
 
 # Set environment variables
 ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
@@ -46,8 +47,7 @@ RUN chgrp -R 0 /usr/local/glassfish3 && \
 
 
 ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
-VOLUME /home/digitalizados
-VOLUME /usr/local/glassfish3
+
 USER 1001
 # Start the GlassFish domain
 CMD ["asadmin", "start-domain", "--verbose"]
