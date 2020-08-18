@@ -1,6 +1,6 @@
 FROM        openjdk-8-rhel8:latest
     USER root
-    RUN dnf install wget
+    RUN dnf install -y wget
     RUN  wget https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
     RUN rpm -ivh epel-release-7-8.noarch.rpm
   
