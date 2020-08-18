@@ -1,5 +1,6 @@
 FROM       registry.redhat.io/openshift3/ose-metrics-schema-installer:latest
     USER root
+    RUN  yum repolist all
    RUN yum search all java
     
     RUN yum install  -y java-1.7.0-openjdk-devel
