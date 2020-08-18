@@ -5,9 +5,6 @@
 #AS_ADMIN_ENABLE_SECURE
 #100GB /home/Digitalizados
 #10GB /usr/local/glassfish3
-
-
-
 FROM openjdk:7u151-jdk-alpine
 
 
@@ -28,8 +25,8 @@ RUN wget -q -O $GLASSFISH_PKG $GLASSFISH_URL && \
     cd $GLASSFISH_HOME && \
     find . -name '*.bat' -delete && \
     find . -name '*.exe' -delete
-   VOLUME /home/Digitalizados
-   VOLUME /usr/local/glassfish3
+   #VOLUME /home/Digitalizados
+  # VOLUME /usr/local/glassfish3
 
 # Ports being exposed
 EXPOSE 4848 8080 8181
@@ -38,7 +35,7 @@ WORKDIR /usr/local/glassfish3
 
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
-RUN chmod 777 /usr/local/glassfish3/docker-entrypoint.sh
+#RUN chmod 777 /usr/local/glassfish3/docker-entrypoint.sh
 RUN chgrp -R 0 /usr/local/glassfish3 && \
     chmod -R g=u /usr/local/glassfish3
     
@@ -49,9 +46,9 @@ USER 1001
 # Start the GlassFish domain
 CMD ["asadmin", "start-domain", "--verbose"]
 
-LABEL maintainer="King Chung Huang <kchuang@ucalgary.ca>" \
+LABEL maintainer=" <josue.ramrez>" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.name="GlassFish" \
       org.label-schema.version="3.1.2.2" \
       org.label-schema.url="https://glassfish.java.net" \
-      org.label-schema.vcs-url="https://github.com/ucalgary/docker-glassfish"
+      org.label-schema.vcs-url="https://github.com/Eliseo247/infosweb-glassfish3.1-openjdk7"
