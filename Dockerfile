@@ -44,7 +44,7 @@ RUN chgrp -R 0 /usr/local/glassfish3 && \
   #/usr/local/glassfish3
 
 VOLUME  ["/usr/local/glassfish3"]
-#VOLUME ["/home/digitalizados"]
+VOLUME ["/home/digitalizados"]
 WORKDIR /usr/local/glassfish3
 ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 
