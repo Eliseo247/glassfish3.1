@@ -1,7 +1,7 @@
 FROM        openjdk-8-rhel8:latest
 
     USER root
-   RUN dnf search httpd    
+   RUN dnf search openjdk   
     
     RUN dnf install -y java-1.7.0-openjdk-devel
 
