@@ -1,4 +1,4 @@
-FROM        openjdk-8-rhel8:latest
+FROM        openjdk-8-rhel7:latest
 
     USER root
    RUN dnf search openjdk   
