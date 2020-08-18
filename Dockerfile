@@ -1,7 +1,9 @@
 FROM       registry.redhat.io/openshift3/ose-metrics-schema-installer:latest
     USER root
-   RUN  yum repolist all
-RUN yum-config-manager --enable rhel-6-server-optional-rpms
+    RUN wget https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
+    RUN rpm -ivh epel-release-7-8.noarch.rpm
+  
+#RUN yum-config-manager --enable rhel-6-server-optional-rpms
   #  RUN  yum repolist all
    #RUN yum search all java
     
