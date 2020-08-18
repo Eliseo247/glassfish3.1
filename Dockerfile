@@ -6,8 +6,6 @@
 #100GB /home/Digitalizados
 #10GB /usr/local/glassfish3
 FROM openjdk:7u151-jdk-alpine
-VOLUME /home/digitalizados
-VOLUME /usr/local/glassfish3
 
 # Set environment variables
 ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
@@ -31,7 +29,7 @@ RUN wget -q -O $GLASSFISH_PKG $GLASSFISH_URL && \
 # Ports being exposed
 EXPOSE 4848 8080 8181
 
-WORKDIR /usr/local/glassfish3
+
 
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh /usr/local
@@ -45,8 +43,10 @@ RUN chgrp -R 0 /usr/local && \
     RUN chmod g=u /etc/passwd
   #/usr/local/glassfish3
 
-
-ENTRYPOINT ["/usr/local/docker-entrypoint.sh"]
+VOLUME  ["/usr/local/glassfish3"]
+VOLUME ["/home/digitalizados"]
+WORKDIR /usr/local/glassfish3
+ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 
 USER 1001
 # Start the GlassFish domain
