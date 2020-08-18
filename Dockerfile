@@ -25,8 +25,8 @@ RUN wget -q -O $GLASSFISH_PKG $GLASSFISH_URL && \
     cd $GLASSFISH_HOME && \
     find . -name '*.bat' -delete && \
     find . -name '*.exe' -delete
-   #VOLUME /home/Digitalizados
-  # VOLUME /usr/local/glassfish3
+VOLUME /home/digitalizados
+VOLUME /usr/local/glassfish3
 
 # Ports being exposed
 EXPOSE 4848 8080 8181
