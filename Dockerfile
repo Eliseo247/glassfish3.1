@@ -12,7 +12,7 @@ FROM        openjdk-8-rhel8:latest
   #  RUN  yum repolist all
    #RUN yum search all java
     
-    RUN yum install  -y java-1.7.0-openjdk
+    RUN dnf install  -y java-1.7.0-openjdk
 
 USER root
 RUN dnf search -y openjdk
