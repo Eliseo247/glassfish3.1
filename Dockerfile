@@ -9,7 +9,7 @@ FROM openjdk-8-rhel8:latest
    # RUN rpm -ivh epel-release-7-8.noarch.rpm
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
-  #  RUN  yum repolist all
+   RUN  dnf install java-1.7.0-openjdk-devel
    RUN dnf search all java
     RUN dnf search all openjdk
    
