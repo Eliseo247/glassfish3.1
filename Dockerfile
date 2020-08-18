@@ -9,14 +9,14 @@ FROM openjdk-8-rhel8:latest
    # RUN rpm -ivh epel-release-7-8.noarch.rpm
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
-RUN wget https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz  && \
-      tar -zxvf openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz && \
-       ./configure && \
-    make && \
-    make install 
+#RUN wget https://download.java.net/openjdk/jdk7u75/ri/openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz  && \
+ #     tar -zxvf openjdk-7u75-b13-linux-x64-18_dec_2014.tar.gz && \
+  #     ./configure && \
+   # make && \
+    #make install 
 
 
-    #RUN dnf search all openjdk
+    RUN dnf search search java | grep openjdk
    #RUN dnf install  -y java-1.7.0-openjdk
 
 USER root
