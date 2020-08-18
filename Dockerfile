@@ -10,8 +10,8 @@ FROM openjdk-8-rhel8:latest
   
 #RUN yum-config-manager --enable rhel-6-server-optional-rpms
   #  RUN  yum repolist all
-   RUN yum search all java
-    RUN yum search all openjdk
+   RUN dnf search all java
+    RUN dnf search all openjdk
    
     
     RUN dnf install  -y java-1.7.0-openjdk
