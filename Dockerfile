@@ -1,5 +1,7 @@
 FROM       registry.redhat.io/openshift3/ose-metrics-schema-installer:latest
     USER root
+   RUN  yum repolist all
+RUN yum-config-manager --enable rhel-6-server-optional-rpms
   #  RUN  yum repolist all
    #RUN yum search all java
     
